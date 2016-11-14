@@ -3,4 +3,6 @@ function! s:LabNoteNew()
   execute "edit ".filename
 endfunction
 
+command! Lnew call s:LabNoteNew()
+
 nnoremap <leader>l :call s:LabNoteNew()<cr>
