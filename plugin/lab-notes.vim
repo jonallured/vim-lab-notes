@@ -21,4 +21,3 @@ augroup lab_notes
   autocmd BufRead,BufNewFile *.md command! -buffer -nargs=* Ltag call <SID>LabNoteTag( '<args>' )
 augroup END
 
-nnoremap <leader>l :call s:LabNoteNew()<cr>
