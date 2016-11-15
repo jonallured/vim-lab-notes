@@ -14,7 +14,7 @@ function! s:LabNoteTag(...)
   endif
 endfunction
 
-command! Lnew call s:LabNoteNew()
+command! Ledit call s:LabNoteNew()
 
 augroup lab_notes
   autocmd!
