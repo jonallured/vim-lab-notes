@@ -1,6 +1,6 @@
-function! s:LabNoteNew()
+function! s:LabNoteNew(command)
   let filename = system("~/code/lab_notes/bin/new")
-  execute "edit ".filename
+  execute a:command." ".filename
 endfunction
 
 function! s:LabNoteTag(...)
@@ -14,7 +14,7 @@ function! s:LabNoteTag(...)
   endif
 endfunction
 
-command! Ledit call s:LabNoteNew()
+command! Ledit call s:LabNoteNew("edit")
 
 augroup lab_notes
   autocmd!
