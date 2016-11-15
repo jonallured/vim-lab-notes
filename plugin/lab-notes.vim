@@ -15,9 +15,11 @@ function! s:LabNoteTag(...)
 endfunction
 
 command! Ledit call s:LabNoteNew("edit")
+command! Lsplit call s:LabNoteNew("split")
+command! Ltabedit call s:LabNoteNew("tabedit")
+command! Lvsplit call s:LabNoteNew("vsplit")
 
 augroup lab_notes
   autocmd!
   autocmd BufRead,BufNewFile *.md command! -buffer -nargs=* Ltag call <SID>LabNoteTag( '<args>' )
 augroup END
-
