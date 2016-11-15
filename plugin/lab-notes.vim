@@ -1,6 +1,6 @@
-function! s:LabNoteNew(command)
+function! s:LabNoteNew(action)
   let filename = system("~/code/lab_notes/bin/new")
-  execute a:command." ".filename
+  execute a:action." ".filename
 endfunction
 
 function! s:LabNoteTag(...)
