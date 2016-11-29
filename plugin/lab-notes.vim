@@ -4,7 +4,16 @@ function! s:LabNoteNew(action)
 endfunction
 
 function! s:LabNoteJump(position)
-  let filename = system("~/code/lab_notes/bin/jump ".a:position)
+  let jump_script = "~/code/lab_notes/bin/jump "
+
+  if a:position == "next" || a:position == "prev"
+    let current_entry = @%
+    let jump_command = jump_script.a:position." ".current_entry
+  else
+    let jump_command = jump_script.a:position
+  endif
+
+  let filename = system(jump_command)
   execute "edit ".filename
 endfunction
 
