@@ -3,6 +3,11 @@ function! s:LabNoteNew(action)
   execute a:action." ".filename
 endfunction
 
+function! s:LabNoteJump(position)
+  let filename = system("~/code/lab_notes/bin/jump ".a:position)
+  execute "edit ".filename
+endfunction
+
 function! s:LabNoteTag(...)
   let tags = " " . join(a:000, " ")
   let line = search('^tags:', 'nw')
@@ -18,6 +23,8 @@ command! Ledit call s:LabNoteNew("edit")
 command! Lsplit call s:LabNoteNew("split")
 command! Ltabedit call s:LabNoteNew("tabedit")
 command! Lvsplit call s:LabNoteNew("vsplit")
+
+command! -nargs=* Ljump call s:LabNoteJump( '<args>' )
 
 augroup lab_notes
   autocmd!
